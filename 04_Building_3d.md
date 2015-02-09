@@ -9,8 +9,6 @@ The first step in making an environment feel realistic to a player is to give it
 
 So, let's get started!
 
-
-
 The first thing we're going to do is create a GameObject using one of the prefabricated models (prefabs) that Unity has built in. As you build your game out with Unity, you'll become very familiar with the GameObject menu and the various components that make up objects in your environment.
 
 {x: make floor}
@@ -140,7 +138,7 @@ For our wall, we have a scale of x:50 (since the base is 5*10 units), y:4 (you c
 Now that you know the basics about building the skeleton for your maze, you can finish building your own maze design or copy the one that we've provided in the source code.
 
 {x: Build out your maze layout with floors and walls}
-Finish the general maze layout 
+Finish the general maze layout
 
 <!-- TODO: Include diagram renderings as part of the paid tutorial content-->
 

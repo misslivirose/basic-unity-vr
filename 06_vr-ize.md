@@ -2,9 +2,7 @@
 At this point, our game is playable and in theory is ready to go - by default, Unity allows you to export your game project in several formats for desktop and mobile, but we want to add an additional layer to it that allows us to build out our environment and make it fully immersive using the Oculus SDK.
 
 ## Installing the Oculus SDK
-The first thing that we're going to want to do here is install the SDK that Oculus provides for developing. Since Oculus has teamed up with Samsung for their Gear VR headset on Android, we have a couple of options for how to build our final project depending on the final goals. In this section, we'll cover both the mobile and desktop Oculus experience.
-
-The first thing that we're going to do is install the tools that we need in order to utilize the tools that Oculus has created for VR development.
+The first thing that we're going to want to do here is install the SDK that Oculus provides for developing. You'll need to start by installing the tools that we need in order to utilize the in-game components that Oculus has created for VR development.
 
 {x: create Oculus dev account}
 If you haven't already, create an Oculus developer account
@@ -24,11 +22,22 @@ Head over to the <a href="https://developer.oculus.com/downloads/"> Oculus Devel
 * Unity 4 Integration
 
 ### Mobile VR: Deploying for Samsung Gear VR
-If you have a Samsung Galaxy Note 4 & Gear VR headset, you can deploy your game to run on mobile with the Oculus Mobile SDK for Gear VR.
+If you have a Samsung Galaxy Note 4 & Gear VR headset, you can deploy your game to run on mobile with the Oculus Mobile SDK for Gear VR. We won't cover this in depth here, but there are several resources to get you started.
 
-From the <a href="https://developer.oculus.com/downloads/"> Oculus Developer portal </a>, select 'Mobile' and download the Oculus Mobile SDK for Samsung Note 4. In addition to the Oculus mobile SDK, you'll also need to download the Android SDK and associated runtimes.
+[Oculus Developer Portal Mobile SDK](https://developer.oculus.com/downloads/)
 
-{x: install Android SDK}
-Install the Android SDK and Java runtime for Android development. If you aren't familiar with developing Android apps, we recommend grabbing the Android Studio download for Google, which contains the Android Studio Eclipse-based editor for Android apps and SDK.
+[Video: Developing for Gear VR in Unity Free](https://www.youtube.com/watch?v=0vkRtsaP3co)
+
+[Gear VR Development Concerns](http://ralphbarbagallo.com/2014/11/13/samsung-gear-vr-development-challenges-with-unity3d/)
+
+<!-- TODO: Find more resources -->
 
 ### Replace the main camera with the Oculus Controller & Camera Rig
+After downloading the Oculus SDK and Unity 4 integration components, you will need to replace your current character controller and camera with the Oculus renderer. Luckily, this is fairly straightforward, regardless of which option you're deploying for, because Oculus has created prefabricated controls to use.
+
+{x: Import Oculus Asset Package} Import Oculus Assets
+
+{x: addcharacter} Add the OVRCharacterController
+Because Oculus has included a prefab version of their character, changing our current maze to support the Oculus Rift simply requires swapping out our current First Person Controller for the Oculus one: the OVRPlayerController. Under the Assets tab in your project hierarchy, expand OVR -> Prefabs and drag and drop the OVRPlayerController into the scene. In the Scene Hierarchy, select your First Person Controller, right-click, and delete it - we only need one controller in this scene. Depending on your placement of the OVRPlayerController, you may need to move it up on the Y-axis slightly to keep it from falling through the bottom of your maze.
+
+Press play to make sure that the camera is rendering correctly. You should briefly see the Oculus warning message, and your character is ready to play!
