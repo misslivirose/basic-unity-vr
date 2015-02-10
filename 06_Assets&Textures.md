@@ -6,7 +6,7 @@ Right now, we have the bare basics of our maze and a general first person contro
 {x: visit store}
 [Explore the Unity Asset Store](https://www.assetstore.unity3d.com/en/)
 
-You can access the Unity Asset store online and through the program with the shortcut CMD + 9. The Asset store requires Unity 3.3 or later, so if you're using an older version or running Unity in Wine on Linux, you won't be able to access the store directly.
+You can access the Unity Asset store online and through the program with the shortcut CMD/CTRL + 9. The Asset store requires Unity 3.3 or later, so if you're using an older version or running Unity in Wine on Linux, you won't be able to access the store directly.
 
 [Workaround for accessing the Asset Store on Linux](http://wiki.unity3d.com/index.php/Running_Unity_on_Linux_through_Wine#Unity_Asset_store_does_not_work_.28Has_a_workaround.29)
 
@@ -16,7 +16,7 @@ The Unity Asset store is a centralized location to find resources for building g
 
 Want to skip the asset store for the terrain? Unity has a few built-in textures in the Terrain Asset package that can be included in your project by going to Assets -> Import Package -> Terrain Assets.
 
-## Finding and applying textures
+# Finding and applying textures
 Right now, we have a completed maze that is just about impossible to navigate due to all of the monotone colors, so we're going to make the environment more welcoming with textures. This will also add an element of realism based on the textures you choose.
 
 <!-- TODO: Add interesting links for creating texture packages -->
@@ -28,6 +28,8 @@ Launch the Unity Asset store. If this is your first time using the store, you'll
 Create an account on the Unity Asset store
 
 We're going to be downloading a texture pack from the Unity Asset store and importing it into our project. You can pick any texture you'd like - for this tutorial, we'll be using a couple of free store downloads, but you can also use the built-ins.
+
+## Modifying the floor texture
 
 {x: choose_floor_texture} Download and import a texture package from the Unity Asset store to apply to the ground of the maze.
 
@@ -59,6 +61,7 @@ There are a few different ways that you can add textures to the various flooring
 
 Once you've added your desired textures to the ground of your maze, try running the game again - you'll notice that it's much easier to distinguish the pathways from the sky with the contrast from the new textured ground. We want to do the same thing with our walls to polish off the maze foundation.
 
+##Modifying the wall texture
 
 {x: wall_texture} Download, import, and apply a texture package from the Unity Asset store to apply to the walls of the maze.
 
@@ -84,7 +87,8 @@ For more information about textures in Unity, we recommend checking out the foll
 
 [Beginner Texture Tutorial](http://unity3d.com/learn/tutorials/modules/beginner/graphics/textures)
 
-<!-- TODO: explain tiling -->
+
+## Normal Maps and Tiling
 
 <!-- TODO: add resources for different texture models -->
 
@@ -116,4 +120,15 @@ You can change the various properties of your light(s) in the inspector. Adjusti
 To finish off our scene, our last step will be adding in a Skybox. The Skybox component is basically a giant cube that surrounds the entire  environment to give the sense of a horizon and sky.
 
 {x: skybox} Create a Skybox
- 
+
+Like many of the other basic asset packages, Unity includes several options for Skyboxes.
+
+1. Import the default Unity Skybox package by going to Assets -> Import Package -> Skybox
+
+2. Go to Edit -> Render Settings to open the render settings in the Inspector
+
+3. In the Project directory, expand the Standard Assets folder and open the Skyboxes folder.
+
+4. Drag your desired Skybox into the box for 'Skybox Material' in the Render Settings Inspector
+
+Run your maze - you can now run through it and you should see the sky surrounding the entire environment. You can download and try out additional skyboxes from the Unity Asset store.
