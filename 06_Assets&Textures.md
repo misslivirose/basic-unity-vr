@@ -90,6 +90,8 @@ For more information about textures in Unity, we recommend checking out the foll
 
 # Lighting and shadows
 
+{x: lighting} Create a lighting system in your game
+
 Once we have our floor and wall textures in place, and the tiling of them look good, it's time to add lighting. Unity provides four types of lighting options (three for the free version):
 
 * Directional Light
@@ -105,5 +107,13 @@ You can play around with creating lighting effects the same way you'd create oth
 
 3. Position your light to your liking to cast shadows in your maze
 
+You can change the various properties of your light(s) in the inspector. Adjusting the color & intensity will change the way the light appears on your maze and increase the contrast between light and shadows. There are several options for additional lighting effects that you can add to your lights for different appearances.
 
-# Adding a sky
+[Full list of properties for lights and descriptions](http://docs.unity3d.com/Manual/class-Light.html).
+
+
+# Adding a Skybox
+To finish off our scene, our last step will be adding in a Skybox. The Skybox component is basically a giant cube that surrounds the entire  environment to give the sense of a horizon and sky.
+
+{x: skybox} Create a Skybox
+ 
