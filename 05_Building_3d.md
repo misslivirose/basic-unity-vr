@@ -1,6 +1,6 @@
 # Building a 3D Environment
 
-We've installed unity and gotten our empty project made. By now, you should know a little about the editor, and we're ready to start building our maze.
+Okay, so now we've installed Unity and gotten our empty project made. By now, you should know a little about the editor, and we're ready to start building our maze.
 
 First things first: when building 3D games (or any other type of interactive experience) in Unity, you need to know the fundamentals about the GameObject. Just about every aspect of your game, from the interface to the characters, player, environment, and affects, will be composed of various GameObjects with different sets of components. For the first part of the environment we're making, we'll be using a built-in Unity UI GameObject element called the 'Plane' GameObject.
 
@@ -25,7 +25,7 @@ The first hurdle with developing in 3D is getting used to specifying object size
 
 Running the game now results in a static image where we can see the plane we've just created at the bottom of the field of vision. As we build out our maze, we'll want to change our view to place our new GameObjects, so let's cover a few basics with views:
 
-* The fastest way to get precise camera control for the perspective you want is by holding down the alt/option key while you grab the view field and rotate. This switches the control mode to pan, but allows you to manipulate the view over all three axes - helpful when checking collision points.
+* The fastest way to get precise camera control for the perspective you want is by holding down the alt/option key while you grab the view field and rotate (Mac). This switches the control mode to pan, but allows you to manipulate the view over all three axes - helpful when checking collision points.
 
 * Dragging and dropping with the view mode set to 'Pan' allows you to view different areas of your map without changing the view angle. Pressing & holding the Control key will let you zoom in and out from a static point.
 
@@ -33,53 +33,50 @@ Running the game now results in a static image where we can see the plane we've 
 
 <!-- TODO: Get a list of resources for understanding views in Unity -->
 <!-- TODO: Reorder this section of the tutorial to make more sense -->
-
-## Creating a first person control
-
-We won't get very far with playing our game without a controller, so let's pause now to make a controller so that we can manipulate the main camera and move around the board.
-
-Since we're developing an experience for the Oculus Rift, we'll be using the default first person controller rather than a third person character control.
+.
 
 <!-- TODO: Find links for third person character controls -->
 
 
 {x: gameobject-component relationship}
-Understand the relationship <a href="http://docs.unity3d.com/Manual/TheGameObject-ComponentRelationship.html"> between GameObjects and Components </a>
+[Understand the relationship between GameObjects and Components](http://docs.unity3d.com/Manual/TheGameObject-ComponentRelationship.html)
 
 Generally speaking, the relationship between a GameObject and a Component is fairly straightforward: a **GameObject** is the object's representation in the world and it's "physical" aspects, such as location and size, and it contains a set of **components** that define its characteristics and behaviors, such as it's motion controls or how it lights the area around it.
 
-Unity comes with a preset component for creating an FPS character control, which works out fine for us in this app. Since we already have the camera controller as part of our scene, we can quickly add a control that lets us navigate by selecting the Main Camera object and going to Component -> Character -> FPS Input Controller.
 
+
+## Creating a first person control
 
 <!-- TODO: Add image here -->
 
 {x: create character}
 Create your first character controller using the built-in Unity FPS character component
 
-When you run the game now, you will have a first person view of the plane we've created. Right now, it's not terribly realistic, since we haven't added a camera controller - we can only look in one direction. Notice that most of the typical controls for a first-person controller have been added for us automatically. You can move with the arrow or WASD keys, jump with the space bar, and the view adjusts automatically for us when we move around the plane.
 
-<!-- TODO: Add detail links for first person character descriptions -->
+We won't get very far with playing our game without a controller, so let's pause now to make a controller so that we can manipulate the camera and move around the board.
 
-If you jump off at this point, gravity kicks in and you'll fall through space until you restart the scene.
+Since we're developing an experience for the Oculus Rift, we'll be using the default first person controller rather than a third person character control at first - we'll update this with an Oculus character control object later on in the tutorial.
 
-Since we can't look around yet, we'll add a temporary mouse look controller until we're ready to make our game VR-ready. To do this, we'll be adding another component to our Main Camera.
+Because we created our project without any assets, the first thing that we'll want to do is import the standard Character Controller asset package.
 
-{x: add mouse look}
-Create a new component to look around with the mouse
+1. Go to Assets -> Import Package -> Character Controllers to import the package to your project. You can uncheck the Third Person Prefab to save space, but it's not strictly necessary, especially if you feel like playing around with the various character controllers.
 
-Add a camera view change component for looking around the environment with the mouse by going to Component -> Camera-Control -> Mouse Look. In the properties panel on the right, you can see that the component is listed under the Main Camera object. This is where we'll adjust the sensitivity and view later on in the tutorial.
+2. In the Asset directory at the bottom of the screen, expand the Standard Assets folder and choose the Character Controller folder. You should see two prefabricated controllers, a Third Person controller and a First Person controller.
 
-<!-- TODO: Add mouse look screen cast -->
+3. Grab the First Person Controller and drag it into your scene over your plane. Make sure that the character is fully above the plane, or the collider won't take and the character will fall through the floor.
 
-Run the game and try looking around with the mouse. Eventually, this control will be replaced to allow us to detect tracking with the Oculus, but for now, we'll use the mouse to keep things simple.
+When you run the game now, you will have a first person view of the plane we've created. Notice that many of the typical controls for a first-person controller have been added for us automatically. You can move with the arrow or WASD keys, jump with the space bar, and the view adjusts automatically for us when we move around the plane.
 
+If you jump off the plane at this point, gravity kicks in and you'll fall through space until you restart the scene.
+
+<!-- TODO: Add a falling script to reset the position -->
 
 ## Building out the maze floor
 This next part of the tutorial allows you to get creative. There are different ways that you can choose to build a maze in Unity, but we'll be going through one that lets you add on to the maze easily by having the floor follow our maze pattern rather than relying on the walls alone for the plan. Whether you choose to use one large base or break it out into the sections as shown is up to you, but there are several benefits to creating the floor layout in pieces rather than using one large foundation:
 
 * Placing walls is easier since you have the coordinates of the floor already
 * You can view the entire maze from any angle while you're building
-* Allows for a better hollistic view of the layout than you can with a single base
+* Allows for a better holistic view of the layout than you can with a single base
 * Gameplay is more controlled since the user will not be able to run around the maze outside of the paths you've created
 
 
@@ -102,7 +99,7 @@ We'll pause here to introduce a new GameObject to the maze we're building by add
 {x: build walls}
 Build walls around your existing paths
 
-A maze is no fun when you can see to the exit, so our next step is to add walls. Do do this, we'll need to add a new prefab object. Unity provides a **cube** GameObject, which we'll be using to make our walls.
+A maze is no fun when you can see to the exit, so our next step is to add walls. Do do this, we'll need to add a new type of object. Unity provides a **cube** GameObject, which we'll be using to make our walls.
 
 Create a cube using the following properties (if you're following the same pattern we used above):
 
@@ -138,13 +135,14 @@ For our wall, we have a scale of x:50 (since the base is 5*10 units), y:4 (you c
 Now that you know the basics about building the skeleton for your maze, you can finish building your own maze design or copy the one that we've provided in the source code.
 
 {x: Build out your maze layout with floors and walls}
-Finish the general maze layout
+Finish the general maze layout using the steps above to create your maze
 
 <!-- TODO: Include diagram renderings as part of the paid tutorial content-->
 
 ## Additional Resources for Environment Building:
+Generally speaking, if you are planning on building a more complex environment and game experience, you'll need to incorporate a more advanced element into your scene - the Terrain GameObject. We won't go into too much detail here, but you can find additional resources on building complex environments with the Terrain Editor in Unity below.
 
-<a href="http://docs.unity3d.com/Manual/script-Terrain.html"> Building a more complex environment with the Terrain Editor </a>
+[Building a more complex environment with the Terrain Editor](http://docs.unity3d.com/Manual/script-Terrain.html)
 
 <a href = TBD> Want to skip the manual environment building? Check out this tutorial on how to generate maze levels in Unity. </a>
 
