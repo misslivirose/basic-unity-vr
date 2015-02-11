@@ -70,8 +70,21 @@ The two methods are pretty straightforward: `Start()` is called when the scene i
 using UnityEngine.UI;
 ````
 
-This will allow us to interact with our GUI objects on the screen so that we can update our text box text.
+This will allow us to interact with our GUI objects on the screen so that we can update our text box text. Next, we'll declare our variables for two objects - the text box we're editing, and a float to store the timer. Above the `Start()` function, add the following lines:
 
+````
+static float timer = 0.0f;
+public Text text_box;
+````
+Unity uses their editor to interact with the scripts we write, so we'll actually be assigning the `text_box` item back in Unity, rather than in code, so it's important to make sure that the `Text` item is actually visible outside of the script file.
 
+Once we have those lines set, the next thing we'll do is include an incremental addition to the `Update()` method and update our UI to show the running time:
+
+````
+// Update is called once per frame
+   void Update () {
+    timer += Time.deltaTime;
+    text_box.text = timer.ToString();}
+````
 
 ## Winning the Game
