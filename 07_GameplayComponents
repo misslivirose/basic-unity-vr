@@ -21,14 +21,57 @@ If you run your game now, you should see your panel floating in your camera view
 
 {x: create_text} Add placeholder string for a timer
 
-1. Select your text item and find the properties for the text block. For now, we can put a placeholder text in, so under the Text box, type in a temporary string.
+1. Select your text item and find the properties for the text block. For now, we can put a placeholder text in, so under the Text (Script) box, type in a temporary string.
 
-2. Under the 'Paragraph' header, check the 'Best Fit' box and set the max size to 50.
+2. Under the 'Paragraph' header, check the 'Best Fit' box and set the max size to your desired size - we chose 60. You might need to play around here to get the look you want.
 
-3. Change the color of your text to contrast with your panel and save.
+3. Change the color of your text to contrast with your panel.
+
+4. Set the Vertical and Horizontal Overflow to "Overflow".
+
+5. Change the Alignment to center horizonally and vertically.
 
 Now, when you run the game, you should see your static panel in your view and the text in front of you.
 
 ## Implementing the Timer
+
+Since we've got the placeholder text in order, it's time to actually give it some functionality. Since we're writing our first custom script for the timer, we'll launch MonoDevelop (or your IDE of choice) when we create the new file.
+
+{x:make_timer} Create a timer script to time your maze
+
+1. Under your Assets folder in the Project hierarchy, right-click and select Create -> C# Script. Name the new script 'TimerController'
+
+2. Drag your TimerController file onto your Text GameObject and double-click the script to open it in your editor.
+
+By default, Unity will generate a code template when you create new scripts from within the editor. The boilerplate code gives you everything you need for the basic functionality of your script, including two methods that will manage the initialization of the script and update it on each tick of the gameplay.
+
+````
+using UnityEngine;
+using System.Collections;
+
+public class TimerController : MonoBehaviour {
+
+  // Use this for initialization
+  void Start () {
+
+
+  }
+
+  // Update is called once per frame
+  void Update () {
+
+  }
+}
+
+````
+The two methods are pretty straightforward: `Start()` is called when the scene is first rendered, and `Update()` is called on subsequent frames of the gameplay. To create the timer text, the first thing we'll want to do is add the following directive:
+
+````
+using UnityEngine.UI;
+````
+
+This will allow us to interact with our GUI objects on the screen so that we can update our text box text.
+
+
 
 ## Winning the Game
