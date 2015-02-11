@@ -29,9 +29,20 @@ If you run your game now, you should see your panel floating in your camera view
 
 4. Set the Vertical and Horizontal Overflow to "Overflow".
 
-5. Change the Alignment to center horizonally and vertically.
+5. Change the Alignment to center horizontally and vertically.
 
 Now, when you run the game, you should see your static panel in your view and the text in front of you.
+
+#Getting Started with Scripting
+In Unity, all of the game play is done through scripting. You have three choices for scripting, JavaScript, Boo, and C# - we'll be doing this tutorial in C#. By default, scripting is done in MonoDevelop, a tool included with Unity, but you may have changed this going through earlier parts of the tutorial -  you can use any editor you'd like to edit scripts, but MonoDevelop is pretty good for the small ones we'll be writing in this game.
+
+Many of the preconfigured assets that are available through Unity come with their own scripts, such as the character controller we added. For some good scripting resources and a primer, check out the following links.
+
+[Unity3D Wiki - Scripting](http://wiki.unity3d.com/index.php/Scripts)
+
+[Official Unity Scripting Reference](http://docs.unity3d.com/ScriptReference/)
+
+[Unity Scripting Lessons](http://unity3d.com/learn/tutorials/modules/beginner/scripting)
 
 ## Implementing the Timer
 
