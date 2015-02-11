@@ -3,6 +3,8 @@ Now that we've got a nice environment set up, it's time to add a few components 
 ## Adding a GUI
 The first thing that we're going to do is include a basic user interface that displays on our screen.
 
+{x: create_gui} Create the container for a timer
+
 1. In your project hierarchy, click Create -> UI -> Canvas
 
 2. Under your Canvas, right-click and add a UI -> Panel item under the Canvas item
@@ -17,12 +19,16 @@ The first thing that we're going to do is include a basic user interface that di
 
 If you run your game now, you should see your panel floating in your camera view screen. We'll create a script to show and hide this later, but for now, let's finish up with the timer. We'll want to adjust our text block first so it's visible when we add in the timing component.
 
+{x: create_text} Add placeholder string for a timer
+
 1. Select your text item and find the properties for the text block. For now, we can put a placeholder text in, so under the Text box, type in a temporary string.
 
 2. Under the 'Paragraph' header, check the 'Best Fit' box and set the max size to 50.
 
-3. Change the color of your text to contrast with your panel and save. When you run the game, you should see your static panel in your view and the text in front of you.
+3. Change the color of your text to contrast with your panel and save.
 
-## Implementing a Timer
+Now, when you run the game, you should see your static panel in your view and the text in front of you.
+
+## Implementing the Timer
 
 ## Winning the Game
