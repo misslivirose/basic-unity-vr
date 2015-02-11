@@ -84,7 +84,7 @@ Once we have those lines set, the next thing we'll do is include an incremental 
 // Update is called once per frame
    void Update () {
     timer += Time.deltaTime;
-    text_box.text = timer.ToString();}
+    text_box.text = timer.ToString("0.00");}
 ````
 
 With that, we're almost done with our first script - all that's left is assigning our UI Text box to be the one we update with the timer. Save your script and return back to Unity.
@@ -96,6 +96,6 @@ To set the target for our `text_box`:
 
 3. Choose the Text object in the window that pops up by double-clicking
 
-When you run your game now, your GUI should display a running timer in your text box. Right now, it's longer than it needs to be, so we'll add a formatting line to our script to cut off the trailing decimals we don't care about. 
+When you run your game now, your GUI should display a running timer in your text box, trimmed to two decimals.
 
 ## Winning the Game
