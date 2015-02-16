@@ -110,3 +110,15 @@ To set the target for our `text_box`:
 When you run your game now, your GUI should display a running timer in your text box, trimmed to two decimals.
 
 ## Winning the Game
+
+Now that we have the timer to track our pace, it's time to add a "finish line" of sorts - you can extend the gameplay in a variety of ways, but for simplicity we'll just be adding a hidden goal that the player needs to find. To do this, we'll need to do a couple of things:
+
+* Create a GameObject where we want the end of our maze to be
+* Add a 'Game Over' UI element
+* Write a script to handle finding the ending trigger, displaying the Game Over UI, and resetting the character position & timer
+
+{x: game_object_final} Creating the final GameObject
+
+{x: gameover_gui} Make the Game Over GUI
+
+{x: game_controller_script} Write the GamePlay Controller
