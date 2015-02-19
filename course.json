@@ -1,6 +1,6 @@
 {
-  "title": "A Better way to Learn Unity",
-  "description": "",
+  "title": "Intro to Unity & VR Development",
+  "description": "Build a VR-enabled maze with Unity and the Oculus SDK",
   "url": "a-better-way-to-learn-unity",
   "git": "https://github.com/misslivirose/basic-unity-tutorial",
   "coverImage": "swift.jpg",
