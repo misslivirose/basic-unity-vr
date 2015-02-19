@@ -1,0 +1,4 @@
+## Unity and Source Control
+If this is your first time playing around with Unity, you may be realizing something: Unity projects can get big, and they can get big *fast*. At some point, if you continue building with Unity, you'll either want to implement some sort of source control or work on a project that involves collaboration, so it's important to get a feel for how this works with 3D Unity projects.
+
+{x: unity_git} Become familiar with setting up a Unity-friendly git repository with [TheNappingKat](http://thenappingkat.azurewebsites.net/?p=301) 
