@@ -117,9 +117,32 @@ Now that we have the timer to track our pace, it's time to add a "finish line" o
 * Add a 'Game Over' UI element
 * Write a script to handle finding the ending trigger, displaying the Game Over UI, and resetting the character position & timer
 
-{x: game_object_final} Creating the final GameObject
+### Creating a final GameObject
 
+{x: game_object_final} Add a capsule 3D object to represent the end point of the maze
 
+The first thing we want to do is create an element in our maze that looks different enough for the player to recognize that they've gotten to the finishing point. You should add this far enough away from your spawning point (the initial position of your character controller) that the maze doesn't immediately give away the final element - in this case, we are going to place our "game over" object in the far corner from the starting point.
+
+To create our ending point:
+
+1. In the hierarchy, click Create -> 3D Object -> Capsule
+2. Drag the capsule to your desired location
+
+### Particle Systems
+
+Right now, we have a capsule, but it looks pretty boring so we're going to add a [particle system](http://docs.unity3d.com/Manual/ParticleSystems.html) to make it more interesting.
+
+{x: particle_system} Create a particle system effect for our end point
+
+Particle systems are effects that you can use in Unity to give game objects their magic. You can use them during animations, to create interesting lighting effects, give your environment wow factor, represent in-game interactions - the opportunities are pretty much endless. In this section, we're going to be giving our capsule a particle system using the built-in Unity particle asset package so it gives the user the memo that it's not a default component of the maze.
+
+* [The Particle System](http://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/particle-systems) - a beginner overview tutorial from Unity3D on what particle systems do and how to implement them
+
+* [Particle system documentation](http://docs.unity3d.com/ScriptReference/ParticleSystem.html)
+
+The first thing we'll need to do to create our particle system is import the Unity asset package, as this comes with a variety of effects that we can use in our maze. You can find a lot of additional particle effects on the asset store, but for now, we'll just be using the default since Unity gives a lot of flexibility with how you can manipulate particles in different ways.
+
+1. 
 
 {x: gameover_gui} Make the Game Over GUI
 
