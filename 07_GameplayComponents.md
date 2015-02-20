@@ -142,7 +142,24 @@ Particle systems are effects that you can use in Unity to give game objects thei
 
 The first thing we'll need to do to create our particle system is import the Unity asset package, as this comes with a variety of effects that we can use in our maze. You can find a lot of additional particle effects on the asset store, but for now, we'll just be using the default since Unity gives a lot of flexibility with how you can manipulate particles in different ways.
 
-1. 
+1. Go to Assets -> Import Package -> Particles
+2. Import the asset package into your project
+3. Select your capsule and click "Add Component"
+4. Choose Effects -> Particle System
+
+What you should be seeing now is a series of glowing objects flying out of your capsule. We want to make the effect a little less intrusive so it's not too obvious from the rest of our maze, so we're going to go ahead and change some of the characteristics of our particle system and change how it renders. You can be creative, or copy what we ended up with by changing the follow particle system attributes in the Inspector on your capsule by ticking the header for particular characteristics and making the following changes:
+
+1. Start Speed: 1
+2. Start Lifetime: 4
+3. Inherit Velocity: 4
+4. Start Size: .4
+5. Shape -> Angle: 0
+6. Color Over Lifetime -> Gradient (we made ours gold)
+
+After changing the particle effect, we want to hide the mesh for the capsule by unchecking "Mesh Renderer" on the capsule object in the Inspector.
+
+Lastly, we'll rotate our capsule -90 degree on the X axis so it appears our particles are floating up into the sky and gives the player a sense of stepping into the ring they form.
+
 
 {x: gameover_gui} Make the Game Over GUI
 
