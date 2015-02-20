@@ -4,6 +4,8 @@ Okay, so now we've installed Unity and gotten our empty project made. By now, yo
 
 First things first: when building 3D games (or any other type of interactive experience) in Unity, you need to know the fundamentals about the GameObject. Just about every aspect of your game, from the interface to the characters, player, environment, and affects, will be composed of various GameObjects with different sets of components. For the first part of the environment we're making, we'll be using a built-in Unity UI GameObject element called the 'Plane' GameObject.
 
+[Positioning GameObjects in Unity](http://docs.unity3d.com/Manual/PositioningGameObjects.html)
+
 ## Using a plane to create a foundation
 The first step in making an environment feel realistic to a player is to give it a foundation. If you try running your empty scene right now, all you'll see is a blank blue environment, which is to be expected - we haven't added any character controller or any objects to see. Later on, though, when we add a controller for the player, you'll notice that any time you step off of a plane, your character will fall until you kill the process and restart the level.
 
@@ -52,7 +54,6 @@ Generally speaking, the relationship between a GameObject and a Component is fai
 {x: create character}
 Create your first character controller using the built-in Unity FPS character component
 
-
 We won't get very far with playing our game without a controller, so let's pause now to make a controller so that we can manipulate the camera and move around the board.
 
 Since we're developing an experience for the Oculus Rift, we'll be using the default first person controller rather than a third person character control at first - we'll update this with an Oculus character control object later on in the tutorial.
@@ -78,7 +79,6 @@ This next part of the tutorial allows you to get creative. There are different w
 * You can view the entire maze from any angle while you're building
 * Allows for a better holistic view of the layout than you can with a single base
 * Gameplay is more controlled since the user will not be able to run around the maze outside of the paths you've created
-
 
 {x: build hallway}
 Build a single pathway for the maze

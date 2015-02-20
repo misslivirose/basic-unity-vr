@@ -22,3 +22,5 @@ For the purposes of this tutorial, select the Free version when prompted on star
 
 ## Sign In
 <!-- TODO: Add info in here -->
+
+Once you've activated the free version of Unity, you'll be prompted to sign in with your Unity account. 
