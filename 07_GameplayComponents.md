@@ -3,7 +3,8 @@ Now that we've got a nice environment set up, it's time to add a few components 
 ## Adding a GUI
 The first thing that we're going to do is include a basic user interface that displays on our screen.
 
-{x: create_gui} Create the container for a timer
+{x: create_gui}
+Create the container for a timer
 
 1. In your project hierarchy, click Create -> UI -> Canvas
 
@@ -19,7 +20,8 @@ The first thing that we're going to do is include a basic user interface that di
 
 If you run your game now, you should see your panel floating in your camera view screen. We'll create a script to show and hide this later, but for now, let's finish up with the timer. We'll want to adjust our text block first so it's visible when we add in the timing component.
 
-{x: create_text} Add placeholder string for a timer
+{x: create_text}
+Add placeholder string for a timer
 
 1. Select your text item and find the properties for the text block. For now, we can put a placeholder text in, so under the Text (Script) box, type in a temporary string.
 
@@ -48,7 +50,8 @@ Many of the preconfigured assets that are available through Unity come with thei
 
 Since we've got the placeholder text in order, it's time to actually give it some functionality. Since we're writing our first custom script for the timer, we'll launch MonoDevelop (or your IDE of choice) when we create the new file.
 
-{x:make_timer} Create a timer script to time your maze
+{x:make_timer}
+Create a timer script to time your maze
 
 1. Under your Assets folder in the Project hierarchy, right-click and select Create -> C# Script. Name the new script 'TimerController'
 
@@ -98,7 +101,35 @@ Once we have those lines set, the next thing we'll do is include an incremental 
     text_box.text = timer.ToString("0.00");}
 ````
 
-With that, we're almost done with our first script - all that's left is assigning our UI Text box to be the one we update with the timer. Save your script and return back to Unity.
+With that, we're almost done with our first script - all that's left is assigning our UI Text box to be the one we update with the timer.The final code should look like this:
+
+````
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+static float timer = 0.0f;
+public Text text_box;
+
+public class TimerController : MonoBehaviour {
+
+  // Use this for initialization
+  void Start () {
+
+
+  }
+
+  // Update is called once per frame
+  void Update () {
+    timer += Time.deltaTime;
+    text_box.text = timer.ToString("0.00");
+  }
+}
+
+````
+
+
+Save your script and return back to Unity.
 
 To set the target for our `text_box`:
 1. Select the Text box in the Hierarchy and scroll down to the bottom of the Inspector.
@@ -119,7 +150,8 @@ Now that we have the timer to track our pace, it's time to add a "finish line" o
 
 ### Creating a final GameObject
 
-{x: game_object_final} Add a capsule 3D object to represent the end point of the maze
+{x: game_object_final}
+Add a capsule 3D object to represent the end point of the maze
 
 The first thing we want to do is create an element in our maze that looks different enough for the player to recognize that they've gotten to the finishing point. You should add this far enough away from your spawning point (the initial position of your character controller) that the maze doesn't immediately give away the final element - in this case, we are going to place our "game over" object in the far corner from the starting point.
 
@@ -132,7 +164,8 @@ To create our ending point:
 
 Right now, we have a capsule, but it looks pretty boring so we're going to add a [particle system](http://docs.unity3d.com/Manual/ParticleSystems.html) to make it more interesting.
 
-{x: particle_system} Create a particle system effect for our end point
+{x: particle_system}
+Create a particle system effect for our end point
 
 Particle systems are effects that you can use in Unity to give game objects their magic. You can use them during animations, to create interesting lighting effects, give your environment wow factor, represent in-game interactions - the opportunities are pretty much endless. In this section, we're going to be giving our capsule a particle system using the built-in Unity particle asset package so it gives the user the memo that it's not a default component of the maze.
 
@@ -160,7 +193,94 @@ After changing the particle effect, we want to hide the mesh for the capsule by 
 
 Lastly, we'll rotate our capsule -90 degree on the X axis so it appears our particles are floating up into the sky and gives the player a sense of stepping into the ring they form.
 
+{x: gameover_gui}
+Make the Game Over GUI
 
-{x: gameover_gui} Make the Game Over GUI
+## Putting it all together
+<!-- TODO: Re-write this section to put it in a better order -->
 
-{x: game_controller_script} Write the GamePlay Controller
+{x: game_controller_script}
+Write the GamePlay Controller
+
+Now that we have all the pieces together, there are just a few more steps to finishing up our game play. We're going to implement a timer feature that does the following:
+
+* Captures how long it takes to go through the maze
+* Recognizes when we collide with our particle system (the game ending trigger)
+* Displays our "Game Over" UI
+* Resets the timer and the character position for another chance to go through the maze
+
+We're going to do this by improving our earlier timer script. To do this, we'll have to make a few changes to where we have the script in the game and add a few new lines of code to our current script.
+
+{x: update_timer_script}
+Update Timer Script
+
+The first thing that we'll need to do is add a few more variables to our timer script to track 1) our character's starting position 2) whether or not the timer is running and 3) which character controller in the scene is being used. Since we only have one, this is straightforward, but we'll still need to reference it in our script, so in the variable goes.
+
+{x: update_vars}
+Add in global variables
+
+To implement these, add the following lines of code to your TimerController script under the timer and text_box objects:
+
+```
+public bool isRunning = true;
+Vector3 startPosition;
+public CharacterController characterController;
+```
+
+{x: save_start}
+Store the starting position
+
+In order to reset the position of our camera once the player has finished navigating through the maze, we need to store our initial coordinates for the character controller in the `startPosition` object. The 'Vector3' object [stores these coordinates](http://docs.unity3d.com/ScriptReference/Vector3.html) when the game is launched, so we'll be including this in our `Start()` method.
+
+```
+// Use this for initialization
+void Start () {
+  startPosition = characterController.gameObject.transform.position;
+}
+```
+
+Now that we have the player's initial starting point, we'll need to create a new function that triggers the behavior of our end game. We've already initialized the boolean that tells us whether or not the timer is running, so we can move right into our `OnTriggerEnter` function. This will be called when our player controller collides with our particle system.
+
+*Note: If you were creating a more complex gameplay system, you would need to check which object was colliding with our capsule in the `OnTriggerEnter` event, but since we only have one character and our particle system capsule, we'll skip this part now for simplicity.*
+
+{x: onTriggerEnter}
+Create the `OnTriggerEnter()` and `Reset()` functions
+
+The `OnTriggerEnter()` function is what Unity will call when your object recognizes that there is an overlap between it and another GameObject - in this case, we are writing the function for our capsule, and whatever object collides with it (in this case, our character) will be passed in as an argument.
+
+```
+void OnTriggerEnter(Collider other)
+	{
+		isRunning = false;
+		Reset ();
+	}
+```
+
+At this point, we should get an error if we switch back into Unity since we haven't added our reset function. In this case, we've pulled it out as a separate function so we can modify the reset behavior without getting strange behaviors in `OnTriggerEnter()` but for the basic behavior, you could add in the `Reset()` code to the collision trigger if you so chose.
+
+Add in the `Reset()` function by copy and pasting the following function. `Reset()` will move our character controller back to the start of the maze, begin the timer at zero again, and restart the timer.
+
+```
+void Reset()
+	{
+		characterController.gameObject.transform.position = startPosition;
+		timer = 0.0f;
+		isRunning = true;
+	}
+```
+
+{x: updatetimer}
+Change the `Update()` function to check if the timer should be running
+
+With those two functions in place, we need to make one minor change to our `Update()` call so that the timer checks to make sure it's running before incrementing the number of seconds on the clock. This is an important step because we will later want to implement a keypress to start the timer, and we need it to stay paused until it's reset when the maze is completed. To do this, we'll just be putting an if-statement around the current `Update()` code to check the boolean we declared above:
+
+```
+// Update is called once per frame
+	void Update () {
+
+		if (isRunning) {
+						timer += Time.deltaTime;
+						text_box.text = timer.ToString ("0.00");
+				}
+	}
+```
