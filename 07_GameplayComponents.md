@@ -140,7 +140,7 @@ To set the target for our `text_box`:
 
 When you run your game now, your GUI should display a running timer in your text box, trimmed to two decimals.
 
-## Winning the Game
+# Winning the Game
 
 Now that we have the timer to track our pace, it's time to add a "finish line" of sorts - you can extend the gameplay in a variety of ways that we won't necessarily cover here, but for simplicity we'll just be adding a hidden goal that the player needs to find. To do this, we'll need to do a couple of things:
 
@@ -148,7 +148,7 @@ Now that we have the timer to track our pace, it's time to add a "finish line" o
 * Add a 'Game Over' UI element
 * Write a script to handle finding the ending trigger, displaying the Game Over UI, and resetting the character position & timer
 
-### Creating a final GameObject
+## Creating a final GameObject
 
 {x: game_object_final}
 Add a capsule 3D object to represent the end point of the maze
@@ -196,7 +196,7 @@ Lastly, we'll rotate our capsule -90 degree on the X axis so it appears our part
 {x: gameover_gui}
 Make the Game Over GUI
 
-## Putting it all together
+# Putting it all together
 <!-- TODO: Re-write this section to put it in a better order -->
 
 {x: game_controller_script}
@@ -284,3 +284,55 @@ With those two functions in place, we need to make one minor change to our `Upda
 				}
 	}
 ```
+With that change, we're just about ready to go - but we've got a few more tweaks to do in Unity itself so that the script runs. The full code should look like this:
+
+```
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class TimerController : MonoBehaviour {
+
+	static float timer = 0.0f;
+	public Text text_box;
+	public bool isRunning = true;
+	Vector3 startPosition;
+	public CharacterController characterController;
+
+	// Use this for initialization
+	void Start () {
+
+		startPosition = characterController.gameObject.transform.position;
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+		if (isRunning) {
+						timer += Time.deltaTime;
+						text_box.text = timer.ToString ("0.00");
+				}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		isRunning = false;
+		Reset ();
+	}
+
+	void Reset()
+	{
+		characterController.gameObject.transform.position = startPosition;
+		timer = 0.0f;
+		isRunning = true;
+	}
+}
+```
+
+{x: attach_script} Update the script references in Unity
+
+When we were first testing out our script, we had originally attached it to our GUI, but we're going to change this since we now have a collider to work with. Back in Unity, select the text GUI and delete the script out of the Inspector by clicking the drop down Settings menu on the script and selecting 'Remove Component'.
+
+Attach the script to the Capsule by dragging and dropping the script from the Project directory onto the Capsule GameObject.
+
+Try running your game. When you run into the capsule effects now, your character will automatically begin back at the start and the timer will reset.
