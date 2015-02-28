@@ -144,7 +144,4 @@ Generally speaking, if you are planning on building a more complex environment a
 
 [Building a more complex environment with the Terrain Editor](http://docs.unity3d.com/Manual/script-Terrain.html)
 
-<a href = TBD> Want to skip the manual environment building? Check out this tutorial on how to generate maze levels in Unity. </a>
-
-
 Next up, we'll explore the Asset Store and apply textures to our maze.

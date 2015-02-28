@@ -24,17 +24,16 @@ Right now, we have a completed maze that is just about impossible to navigate du
 Launch the Unity Asset store. If this is your first time using the store, you'll need to create an account.
 
 {x:create_account}
-
 Create an account on the Unity Asset store
 
 We're going to be downloading a texture pack from the Unity Asset store and importing it into our project. You can pick any texture you'd like - for this tutorial, we'll be using a couple of free store downloads, but you can also use the built-ins.
 
 ## Modifying the floor texture
 
-{x: choose_floor_texture} Download and import a texture package from the Unity Asset store to apply to the ground of the maze.
+{x: choose_floor_texture}
+Download and import a texture package from the Unity Asset store to apply to the ground of the maze.
 
 <!-- TODO: Include screencast video / screenshots -->
-
 
 1. From the asset store home page, select "Textures & Materials".
 2. Under the list of available categories, select the type of ground you want to use.
@@ -61,9 +60,12 @@ There are a few different ways that you can add textures to the various flooring
 
 Once you've added your desired textures to the ground of your maze, try running the game again - you'll notice that it's much easier to distinguish the pathways from the sky with the contrast from the new textured ground. We want to do the same thing with our walls to polish off the maze foundation.
 
+*Note: If you do't have access to the Asset Store, you can import basic Unity textures that come standard with the free version instead.*
+
 ##Modifying the wall texture
 
-{x: wall_texture} Download, import, and apply a texture package from the Unity Asset store to apply to the walls of the maze.
+{x: wall_texture}
+Download, import, and apply a texture package from the Unity Asset store to apply to the walls of the maze.
 
 1. From the asset store home page, we'll be going to "Textures & Materials" again.
 
@@ -94,7 +96,8 @@ For more information about textures in Unity, we recommend checking out the foll
 
 # Lighting and shadows
 
-{x: lighting} Create a lighting system in your game
+{x: lighting}
+Create a lighting system in your game
 
 Once we have our floor and wall textures in place, and the tiling of them look good, it's time to add lighting. Unity provides four types of lighting options (three for the free version):
 
@@ -119,7 +122,8 @@ You can change the various properties of your light(s) in the inspector. Adjusti
 # Adding a Skybox
 To finish off our scene, our last step will be adding in a Skybox. The Skybox component is basically a giant cube that surrounds the entire  environment to give the sense of a horizon and sky.
 
-{x: skybox} Create a Skybox
+{x: skybox}
+Create a Skybox
 
 Like many of the other basic asset packages, Unity includes several options for Skyboxes.
 
