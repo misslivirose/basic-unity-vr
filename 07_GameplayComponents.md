@@ -337,3 +337,8 @@ When we were first testing out our script, we had originally attached it to our 
 Attach the script to the Capsule by dragging and dropping the script from the Project directory onto the Capsule GameObject.
 
 Try running your game. When you run into the capsule effects now, your character will automatically begin back at the start and the timer will reset.
+
+{x: key_trigger}
+Wait on a key press to start the game
+
+The last thing that we're going to do is add a function in our TimerController that allows us to trigger when we'd like to start our game. This will allow us to be in control of when the game play actually starts, and makes our maze something that we can use in a demo environment once we implement the Oculus camera. 
