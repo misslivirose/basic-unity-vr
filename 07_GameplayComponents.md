@@ -10,7 +10,7 @@ Create the container for a timer
 
 2. Under your Canvas, right-click and add a UI -> Panel item under the Canvas item
 
-3. In the Inspector for your Panel, change the scale to {x:.25, y:.25, z:.25} - we don't want this to cover the entire screen.
+3. In the Inspector for your Panel, change the scale to x:.25, y:.25, z:.25 - we don't want this to cover the entire screen.
 
 4. Change the color of the panel to be more visible, also in the Inspector tab
 
@@ -284,7 +284,7 @@ With those two functions in place, we need to make one minor change to our `Upda
 				}
 	}
 ```
-With that change, we're just about ready to go - but we've got a few more tweaks to do in Unity itself so that the script runs. The full code should look like this:
+After that change, we're just about ready to go - but we've got a few more tweaks to do in Unity itself so that the script runs. The full code should look like this:
 
 ```
 using UnityEngine;
@@ -329,7 +329,8 @@ public class TimerController : MonoBehaviour {
 }
 ```
 
-{x: attach_script} Update the script references in Unity
+{x: attach_script}
+Update the script references in Unity
 
 When we were first testing out our script, we had originally attached it to our GUI, but we're going to change this since we now have a collider to work with. Back in Unity, select the text GUI and delete the script out of the Inspector by clicking the drop down Settings menu on the script and selecting 'Remove Component'.
 
