@@ -2,12 +2,12 @@
 
 Okay, so now we've installed Unity and gotten our empty project made. By now, you should know a little about the editor, and we're ready to start building our maze.
 
-First things first: when building 3D games (or any other type of interactive experience) in Unity, you need to know the fundamentals about the GameObject. Just about every aspect of your game, from the interface to the characters, player, environment, and affects, will be composed of various GameObjects with different sets of components. For the first part of the environment we're making, we'll be using a built-in Unity UI GameObject element called the 'Plane' GameObject.
+First things first: when building 3D games (or any other type of interactive experience) in Unity, you need to know the fundamentals about the GameObject. Just about every aspect of your game, from the interface to the characters, player, environment, and affects, will be composed of various GameObjects with different sets of components. For the first part of the environment we're making, we'll be using a built-in Unity UI GameObject element called the Plane GameObject.
 
 [Positioning GameObjects in Unity](http://docs.unity3d.com/Manual/PositioningGameObjects.html)
 
 ## Using a plane to create a foundation
-The first step in making an environment feel realistic to a player is to give it a foundation. If you try running your empty scene right now, all you'll see is a blank blue environment, which is to be expected - we haven't added any character controller or any objects to see. Later on, though, when we add a controller for the player, you'll notice that any time you step off of a plane, your character will fall until you kill the process and restart the level.
+The first step in making an environment feel realistic to a player is to give it a foundation. If you try running your empty scene right now, all you'll see is a blank grey environment and a blue sky, which is to be expected - we haven't added any character controller or any objects to see. Later on, though, when we add a controller for the player, you'll notice that any time you step off of a plane, your character will fall until you kill the process and restart the level. By default, Unity 5 includes a Skybox enabled and has a directional light for your scene, so you won't have to worry about those off the bat - but we'll go into how to customize those later on.
 
 So, let's get started!
 
@@ -17,7 +17,7 @@ The first thing we're going to do is create a GameObject using one of the prefab
 Create the foundation
 <!-- TODO: Make this checkbox more descriptive -->
 
-We'll start by going to GameObject -> Create Other -> Plane
+We'll start by going to GameObject -> 3D Object -> Plane
 <!-- TODO: Image showing File menu for Plane object -->
 
 
@@ -56,15 +56,17 @@ Create your first character controller using the built-in Unity FPS character co
 
 We won't get very far with playing our game without a controller, so let's pause now to make a controller so that we can manipulate the camera and move around the board.
 
-Since we're developing an experience for the Oculus Rift, we'll be using the default first person controller rather than a third person character control at first - we'll update this with an Oculus character control object later on in the tutorial.
+<!--Since we're developing an experience for the Oculus Rift, we'll be using the default first person controller rather than a third person character control at first - we'll update this with an Oculus character control object later on in the tutorial.-->
 
 Because we created our project without any assets, the first thing that we'll want to do is import the standard Character Controller asset package.
 
-1. Go to Assets -> Import Package -> Character Controllers to import the package to your project. You can uncheck the Third Person Prefab to save space, but it's not strictly necessary, especially if you feel like playing around with the various character controllers.
+1. Go to Assets -> Import Package -> Characters to import the character package into your project. You can uncheck the Third Person Prefab to save space, but it's not strictly necessary, especially if you feel like playing around with the various character controllers.
 
-2. In the Asset directory at the bottom of the screen, expand the Standard Assets folder and choose the Character Controller folder. You should see two prefabricated controllers, a Third Person controller and a First Person controller.
+2. In the Asset directory at the bottom of the screen, expand the Standard Assets folder, choose the Characters folder, open the First Person Character directory, and double-click 'Prefabs'. You should see two prefabricated controllers, an FPSController and a RigidBodyFPSController
 
-3. Grab the First Person Controller and drag it into your scene over your plane. Make sure that the character is fully above the plane, or the collider won't take and the character will fall through the floor.
+3. Grab the FPSController and drag it into your scene over your plane. Make sure that the character is fully above the plane, or the collider won't take and the character will fall through the floor.
+
+4. Delete the Main Camera. The FPSController comes with a camera component, so we no longer need the one that Unity created by default.
 
 When you run the game now, you will have a first person view of the plane we've created. Notice that many of the typical controls for a first-person controller have been added for us automatically. You can move with the arrow or WASD keys, jump with the space bar, and the view adjusts automatically for us when we move around the plane.
 
@@ -101,7 +103,7 @@ Build walls around your existing paths
 
 A maze is no fun when you can see to the exit, so our next step is to add walls. Do do this, we'll need to add a new type of object. Unity provides a **cube** GameObject, which we'll be using to make our walls.
 
-Create a cube using the following properties (if you're following the same pattern we used above):
+Create a cube using the following properties (if you're following the same pattern we used above) by going to GameObject -> 3D Object -> Cube:
 
 * Position (x:0, y = 2, z = 2.75)
 * Rotation: (x: 0, y:0, z:0 )
