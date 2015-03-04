@@ -14,7 +14,7 @@ The Unity Asset store is a centralized location to find resources for building g
 
 <!-- TODO: detail the asset store -->
 
-Want to skip the asset store for the terrain? Unity has a few built-in textures in the Terrain Asset package that can be included in your project by going to Assets -> Import Package -> Terrain Assets.
+Want to skip the asset store for the terrain? Unity has a few built-in textures in the Terrain Asset package that can be included in your project by going to Assets -> Import Package -> Environment.
 
 # Finding and applying textures
 Right now, we have a completed maze that is just about impossible to navigate due to all of the monotone colors, so we're going to make the environment more welcoming with textures. This will also add an element of realism based on the textures you choose.
@@ -60,8 +60,6 @@ There are a few different ways that you can add textures to the various flooring
 
 Once you've added your desired textures to the ground of your maze, try running the game again - you'll notice that it's much easier to distinguish the pathways from the sky with the contrast from the new textured ground. We want to do the same thing with our walls to polish off the maze foundation.
 
-*Note: If you do't have access to the Asset Store, you can import basic Unity textures that come standard with the free version instead.*
-
 ##Modifying the wall texture
 
 {x: wall_texture}
@@ -94,23 +92,20 @@ For more information about textures in Unity, we recommend checking out the foll
 
 <!-- TODO: add resources for different texture models -->
 
-# Lighting and shadows
+# (Optional)Lighting and shadows
 
-{x: lighting}
-Create a lighting system in your game
-
-Once we have our floor and wall textures in place, and the tiling of them look good, it's time to add lighting. Unity provides four types of lighting options (three for the free version):
+Unity 5 includes a directional light when you create a new scene, but you can modify the lighting style if you'd like to try something different. The types of lighting that Unity supports are:
 
 * Directional Light
 * Point Light
 * Spotlight
-* Area Light (Unity Pro only)
+* Area Light
+* Reflection Probe
+* Light Probe Group
 
 You can play around with creating lighting effects the same way you'd create other GameObjects:
 
-1. Right click in the hierarchy or select "Create" to open the drop down menu
-
-2. Select 'Light' and choose your option - we'll be using a directional light in the demo scene to replicate the sun
+1. Right click in the hierarchy, select "Create" to open the drop down menu, or go to GameObject -> Light to choose a lighting type.
 
 3. Position your light to your liking to cast shadows in your maze
 
@@ -119,20 +114,16 @@ You can change the various properties of your light(s) in the inspector. Adjusti
 [Full list of properties for lights and descriptions](http://docs.unity3d.com/Manual/class-Light.html).
 
 
-# Adding a Skybox
-To finish off our scene, our last step will be adding in a Skybox. The Skybox component is basically a giant cube that surrounds the entire  environment to give the sense of a horizon and sky.
+# (Optional) Adding a custom Skybox
 
-{x: skybox}
-Create a Skybox
+With Unity 5, the scene comes with a skybox by default, but you can change this depending on how you want your environment to feel. To change the skybox:
 
-Like many of the other basic asset packages, Unity includes several options for Skyboxes.
+1. Import your desired skybox from the Asset Store
 
-1. Import the default Unity Skybox package by going to Assets -> Import Package -> Skybox
+2. Select your FirstPersonCharacter controller and click "Add Component"
 
-2. Go to Edit -> Render Settings to open the render settings in the Inspector
+3. Under "Rendering" choose "Skybox"
 
-3. In the Project directory, expand the Standard Assets folder and open the Skyboxes folder.
-
-4. Drag your desired Skybox into the box for 'Skybox Material' in the Render Settings Inspector
+4. Drag your new skybox into the Custom Skybox field
 
 Run your maze - you can now run through it and you should see the sky surrounding the entire environment. You can download and try out additional skyboxes from the Unity Asset store.
