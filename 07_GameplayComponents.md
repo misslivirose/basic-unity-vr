@@ -358,9 +358,87 @@ public bool isRunning = false;
 
 This will prevent our game from starting automatically, but that's okay - we'll take care of that in a bit. For now, switch back over to Unity and locate your GUI Text object. Change the default text (ours is 'Hi!') to "Press F to begin." Then, switch back over to the capsule, and under the Inspector for the script, uncheck the 'isRunning' box.
 
-Finally, we want to make a few changes to our `Reset()`, `Update()`, and `OnTriggerEnter()` methods that will allow us to control when we want the game play to begin.
+Finally, we want to make a few changes to our `OnTriggerEnter()`, `Reset()`, and `Update()` methods that will allow us to control when we want the game play to begin.
 
 {x: finalize_script}
 Finalize script functions
 
-In the `Reset()` function, we want to change the behavior from immediately resetting the game and starting the timer to having the timer reset and allowing for another player to try. We're also going to remove the `isRunning = false` line from our `OnTriggerEnter()` function and move that into `Reset()` after we put the player back into the original position. 
+In the `Reset()` function, we want to change the behavior from immediately resetting the game and starting the timer to having the timer reset and allowing for another player to try. We're also going to remove the `isRunning = false` line from our `OnTriggerEnter()` function and move that into `Reset()` after we put the player back into the original position. Now, `OnTriggerEnter` will just call `Reset()`, and the two functions should look like:
+
+```
+  void OnTriggerEnter(Collider other)
+	{
+		Reset ();
+	}
+
+	/* Call Reset once we start the game over. */
+	void Reset()
+	{
+		characterController.gameObject.transform.position = startPosition;
+		isRunning = false;
+		timer = 0.0f;
+		text_box.text = "Press 'F' to begin";
+	}
+
+```
+
+With these two functions in place, all that's left is to add in a check to see if the player has pressed the 'F' key to start the timer. We will add the following block of code under the existing lines in the `Update()` method. This will check first that the timer isn't running (we don't want to reset if the game is in progress) and if there was a registered key down input on the 'F' keyboard key. If these are both true, then we will begin the timer to start the game.
+
+```
+if (!isRunning & Input.GetKeyDown (KeyCode.F)) {
+          isRunning = true;
+      }
+```
+
+The final script we have will look like this:
+
+```
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class TimerController : MonoBehaviour {
+
+	static float timer = 0.0f;
+	public Text text_box;
+	public bool isRunning = false;
+	Vector3 startPosition;
+	public CharacterController characterController;
+
+	// Use this for initialization
+	void Start () {
+
+		startPosition = characterController.gameObject.transform.position;
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+				if (isRunning) {
+						timer += Time.deltaTime;
+						text_box.text = timer.ToString ("0.00");
+				}
+
+				if (!isRunning & Input.GetKeyDown (KeyCode.F)) {
+						isRunning = true;
+				}
+
+	}
+	/* We want to check when the character collides with a trigger object,
+	   in this case, the particle system cylinder that ends the run. */
+	void OnTriggerEnter(Collider other)
+	{
+		Reset ();
+	}
+
+	/* Call Reset once we start the game over. */
+	void Reset()
+	{
+		characterController.gameObject.transform.position = startPosition;
+		isRunning = false;
+		timer = 0.0f;
+		text_box.text = "Press 'F' to begin";
+	}
+}
+
+```
