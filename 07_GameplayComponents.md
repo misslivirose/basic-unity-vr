@@ -193,9 +193,6 @@ After changing the particle effect, we want to hide the mesh for the capsule by 
 
 Lastly, we'll rotate our capsule -90 degree on the X axis so it appears our particles are floating up into the sky and gives the player a sense of stepping into the ring they form.
 
-{x: gameover_gui}
-Make the Game Over GUI
-
 # Putting it all together
 <!-- TODO: Re-write this section to put it in a better order -->
 
@@ -341,4 +338,29 @@ Try running your game. When you run into the capsule effects now, your character
 {x: key_trigger}
 Wait on a key press to start the game
 
-The last thing that we're going to do is add a function in our TimerController that allows us to trigger when we'd like to start our game. This will allow us to be in control of when the game play actually starts, and makes our maze something that we can use in a demo environment once we implement the Oculus camera. 
+The last thing that we're going to do is add a function in our TimerController that allows us to trigger when we'd like to start our game. This will allow us to be in control of when the game play actually starts, whereas the current behavior simply starts the gameplay over immediately. We will need to:
+
+1. Prevent the timer from running automatically
+2. Display an instructional text in the UI while our timer isn't running
+3. Modify our `OnTriggerEnter` function to reset and wait for the player input
+
+First, we want to change our timer declaration. Over in our `TimerController.cs` script, change
+
+```
+public bool isRunning = true;
+```
+
+to
+
+```
+public bool isRunning = false;
+```
+
+This will prevent our game from starting automatically, but that's okay - we'll take care of that in a bit. For now, switch back over to Unity and locate your GUI Text object. Change the default text (ours is 'Hi!') to "Press F to begin." Then, switch back over to the capsule, and under the Inspector for the script, uncheck the 'isRunning' box.
+
+Finally, we want to make a few changes to our `Reset()`, `Update()`, and `OnTriggerEnter()` methods that will allow us to control when we want the game play to begin.
+
+{x: finalize_script}
+Finalize script functions
+
+In the `Reset()` function, we want to change the behavior from immediately resetting the game and starting the timer to having the timer reset and allowing for another player to try. We're also going to remove the `isRunning = false` line from our `OnTriggerEnter()` function and move that into `Reset()` after we put the player back into the original position. 
