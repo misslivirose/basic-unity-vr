@@ -12,14 +12,12 @@ You can access the Unity Asset store online and through the program with the sho
 
 The Unity Asset store is a centralized location to find resources for building games and environments, and allows content creators to purchase assets, ranging from full scenes to character sprites and ground textures, so that you don't have to make everything yourself.
 
-<!-- TODO: detail the asset store -->
+<!-- TODO: photo of asset store -->
 
 Want to skip the asset store for the terrain? Unity has a few built-in textures in the Terrain Asset package that can be included in your project by going to Assets -> Import Package -> Environment.
 
 # Finding and applying textures
-Right now, we have a completed maze that is just about impossible to navigate due to all of the monotone colors, so we're going to make the environment more welcoming with textures. This will also add an element of realism based on the textures you choose.
-
-<!-- TODO: Add interesting links for creating texture packages -->
+Right now, we have a completed maze that is just about impossible to navigate due to all of the monotone colors, so we're going to make the environment more welcoming with textures. This will also add an element of realism based on the textures you choose.s
 
 Launch the Unity Asset store. If this is your first time using the store, you'll need to create an account.
 
@@ -28,7 +26,7 @@ Create an account on the Unity Asset store
 
 We're going to be downloading a texture pack from the Unity Asset store and importing it into our project. You can pick any texture you'd like - for this tutorial, we'll be using a couple of free store downloads, but you can also use the built-ins.
 
-## Modifying the floor texture
+# Modifying the floor texture
 
 {x: choose_floor_texture}
 Download and import a texture package from the Unity Asset store to apply to the ground of the maze.
@@ -36,6 +34,7 @@ Download and import a texture package from the Unity Asset store to apply to the
 <!-- TODO: Include screencast video / screenshots -->
 
 1. From the asset store home page, select "Textures & Materials".
+
 2. Under the list of available categories, select the type of ground you want to use.
 
   <i> Note: The "Ground", "Nature", and "Organic" categories contain natural textures, such as grass, rock, or dirt. Man-made material textures can be found under "Bricks", "Concrete", "Metal", "Pavement", "Roads", "Tiles", and "Wood". </i>
@@ -60,7 +59,7 @@ There are a few different ways that you can add textures to the various flooring
 
 Once you've added your desired textures to the ground of your maze, try running the game again - you'll notice that it's much easier to distinguish the pathways from the sky with the contrast from the new textured ground. We want to do the same thing with our walls to polish off the maze foundation.
 
-##Modifying the wall texture
+# Modifying the wall texture
 
 {x: wall_texture}
 Download, import, and apply a texture package from the Unity Asset store to apply to the walls of the maze.
@@ -79,7 +78,7 @@ For more information about textures in Unity, we recommend checking out the foll
 
 <!-- TODO: lots of links about background information on textures and other ways to assign textures to components. -->
 
-[How do I add Textures in Unity 4?](http://answers.unity3d.com/questions/467051/how-to-apply-a-texture-to-an-object-in-unity-4-2.html)
+[How do I add Textures?](http://answers.unity3d.com/questions/467051/how-to-apply-a-texture-to-an-object-in-unity-4-2.html)
 
 [Textures - Official Unity Tutorials](https://www.youtube.com/watch?v=-6iquaC0Hf4)
 
@@ -88,11 +87,11 @@ For more information about textures in Unity, we recommend checking out the foll
 [Beginner Texture Tutorial](http://unity3d.com/learn/tutorials/modules/beginner/graphics/textures)
 
 
-## Normal Maps and Tiling
+# Normal Maps and Tiling
 
-<!-- TODO: add resources for different texture models -->
+You may need to manually add in normal maps to your textures in order for them to get the 3D feel to them in your environment. Normal maps are specific to materials and serve as a layer that specifies how lighting renders on your object to give the appearance of shadows and depth. To specify normal maps, you will need to change the type of your texture from "Diffuse" to one that supports an additional normal map. Then, follow the steps above for adding textures to include a normal mapping image to your material.
 
-# (Optional)Lighting and shadows
+# (Optional) Lighting and shadows
 
 Unity 5 includes a directional light when you create a new scene, but you can modify the lighting style if you'd like to try something different. The types of lighting that Unity supports are:
 
