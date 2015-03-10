@@ -65,9 +65,8 @@ When you run the game now, you will have a first person view of the plane we've 
 
 If you jump off the plane at this point, gravity kicks in and you'll fall through space until you restart the scene.
 
-<!-- TODO: Add a falling script to reset the position -->
 
-## Building out the maze floor
+# Building out the maze floor
 This next part of the tutorial allows you to get creative. There are different ways that you can choose to build a maze in Unity, but we'll be going through one that lets you add on to the maze easily by having the floor follow our maze pattern rather than relying on the walls alone for the plan. Whether you choose to use one large base or break it out into the sections as shown is up to you, but there are several benefits to creating the floor layout in pieces rather than using one large foundation:
 
 * Placing walls is easier since you have the coordinates of the floor already
@@ -89,7 +88,7 @@ Build a single pathway for the maze
 We'll pause here to introduce a new GameObject to the maze we're building by adding in walls. You can layout the entire maze floor first if you'd like, but we recommend building the floor and walls in sections to make it easier to layout the objects as you go.
 
 
-<!-- TODO: Include screen capture for scaling / pictures -->
+<!-- TODO: Include pictures for scaling / pictures -->
 
 {x: build walls}
 Build walls around your existing paths
@@ -132,9 +131,8 @@ Now that you know the basics about building the skeleton for your maze, you can 
 {x: Build out your maze layout with floors and walls}
 Finish the general maze layout using the steps above to create your maze
 
-<!-- TODO: Include diagram renderings as part of the paid tutorial content-->
 
-## Additional Resources for Environment Building:
+# Additional Resources for Environment Building:
 Generally speaking, if you are planning on building a more complex environment and game experience, you'll need to incorporate a more advanced element into your scene - the Terrain GameObject. We won't go into too much detail here, but you can find additional resources on building complex environments with the Terrain Editor in Unity below.
 
 [Building a more complex environment with the Terrain Editor](http://docs.unity3d.com/Manual/script-Terrain.html)
