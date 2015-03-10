@@ -6,7 +6,7 @@ First things first: when building 3D games (or any other type of interactive exp
 
 [Positioning GameObjects in Unity](http://docs.unity3d.com/Manual/PositioningGameObjects.html)
 
-## Using a plane to create a foundation
+# Using a plane to create a foundation
 The first step in making an environment feel realistic to a player is to give it a foundation. If you try running your empty scene right now, all you'll see is a blank grey environment and a blue sky, which is to be expected - we haven't added any character controller or any objects to see. Later on, though, when we add a controller for the player, you'll notice that any time you step off of a plane, your character will fall until you kill the process and restart the level. By default, Unity 5 includes a Skybox enabled and has a directional light for your scene, so you won't have to worry about those off the bat - but we'll go into how to customize those later on.
 
 So, let's get started!
@@ -14,14 +14,14 @@ So, let's get started!
 The first thing we're going to do is create a GameObject using one of the prefabricated models (prefabs) that Unity has built in. As you build your game out with Unity, you'll become very familiar with the GameObject menu and the various components that make up objects in your environment.
 
 {x: make floor}
-Create the foundation
-<!-- TODO: Make this checkbox more descriptive -->
+Create the foundation for your maze by creating a series of plane objects
+
 
 We'll start by going to GameObject -> 3D Object -> Plane
 <!-- TODO: Image showing File menu for Plane object -->
 
 
-When you generate a plane GameObject, you should see a shape appear in the center of your viewfield. This will be the starting point for our maze, but right now, it's just a square.
+When you generate a plane GameObject, you should see a shape appear in the center of your view field. This will be the starting point for our maze, but right now, it's just a square.
 
 The first hurdle with developing in 3D is getting used to specifying object sizes and locations relative to their parent container. In this case, the parent for the plane we've just created is our (theoretically) infinite grid, so the plane size will serve as our relative point of reference for sizing the rest of our maze elements.
 
@@ -33,12 +33,6 @@ Running the game now results in a static image where we can see the plane we've 
 
 * To manually drag objects around on the grid, change the view mode to (!!arrow) keys. This can be helpful when placing objects in the general area you want them before using the coordinate system to polish up their exact location. You can specify which axis to move the object on by clicking the object and dragging along the arrow on the axis you want to change.
 
-<!-- TODO: Get a list of resources for understanding views in Unity -->
-<!-- TODO: Reorder this section of the tutorial to make more sense -->
-.
-
-<!-- TODO: Find links for third person character controls -->
-
 
 {x: gameobject-component relationship}
 [Understand the relationship between GameObjects and Components](http://docs.unity3d.com/Manual/TheGameObject-ComponentRelationship.html)
@@ -46,8 +40,7 @@ Running the game now results in a static image where we can see the plane we've 
 Generally speaking, the relationship between a GameObject and a Component is fairly straightforward: a **GameObject** is the object's representation in the world and it's "physical" aspects, such as location and size, and it contains a set of **components** that define its characteristics and behaviors, such as it's motion controls or how it lights the area around it.
 
 
-
-## Creating a first person control
+#x Creating a first person control
 
 <!-- TODO: Add image here -->
 

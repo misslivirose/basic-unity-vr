@@ -14,13 +14,13 @@ Note that the following links were tested on earlier versions of Unity, so you m
 
 [Video walkthrough for installing Unity3D on Ubuntu](https://www.youtube.com/watch?v=mBEU41LY5FQ)
 
-## Licensing Information
+# Licensing Information
 When you install & run Unity for the first time, you'll be presented with a licensing screen with two options: activate Unity 5 Professional Edition or Personal Edition. Everything that we show you in this tutorial is done using Unity Personal Edition, which is really enough to get you started in the beginning.
 
 [Feature Overview for Unity Versions](http://unity3d.com/unity/licenses)
 
 [Recreating Unity Pro features in Unity Free - for Unity 4](http://www.gamasutra.com/blogs/AlexJordan/20140224/211490/Recreating_Unity_Pro_Features_in_Unity_Free.php)
 
-## Sign In
+# Sign In
 
-Once you've activated Unity, you'll be prompted to sign in with your Unity account.If you haven't already created an account, you'll have the ability to create one within the application.
+Once you've activated Unity, you'll be prompted to sign in with your Unity account. If you haven't already created an account, you'll have the ability to create one within the application. 
