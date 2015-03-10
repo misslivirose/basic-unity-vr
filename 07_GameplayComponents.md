@@ -1,6 +1,6 @@
 Now that we've got a nice environment set up, it's time to add a few components that make our game more enjoyable. We're going to include a basic GUI control so that you can see your time throughout the maze, a gameplay mechanism for winning, and a few other components to make the experience more challenging.
 
-## Adding a GUI
+# Adding a GUI
 The first thing that we're going to do is include a basic user interface that displays on our screen.
 
 {x: create_gui}
@@ -35,7 +35,7 @@ Add placeholder string for a timer
 
 Now, when you run the game, you should see your static panel in your view and the text in front of you.
 
-#Getting Started with Scripting
+# Getting Started with Scripting
 In Unity, all of the game play is done through scripting. You have three choices for scripting, JavaScript, Boo, and C# - we'll be doing this tutorial in C#. By default, scripting is done in MonoDevelop, a tool included with Unity, but you may have changed this going through earlier parts of the tutorial -  you can use any editor you'd like to edit scripts, but MonoDevelop is pretty good for the small ones we'll be writing in this game.
 
 Many of the preconfigured assets that are available through Unity come with their own scripts, such as the character controller we added. For some good scripting resources and a primer, check out the following links.
@@ -46,7 +46,7 @@ Many of the preconfigured assets that are available through Unity come with thei
 
 [Unity Scripting Lessons](http://unity3d.com/learn/tutorials/modules/beginner/scripting)
 
-## Implementing the Timer
+# Implementing the Timer
 
 Since we've got the placeholder text in order, it's time to actually give it some functionality. Since we're writing our first custom script for the timer, we'll launch MonoDevelop (or your IDE of choice) when we create the new file.
 
@@ -148,7 +148,7 @@ Now that we have the timer to track our pace, it's time to add a "finish line" o
 * Add a 'Game Over' UI element
 * Write a script to handle finding the ending trigger, displaying the Game Over UI, and resetting the character position & timer
 
-## Creating a final GameObject
+# Creating a final GameObject
 
 {x: game_object_final}
 Add a capsule 3D object to represent the end point of the maze
@@ -160,7 +160,7 @@ To create our ending point:
 1. In the hierarchy, click Create -> 3D Object -> Capsule
 2. Drag the capsule to your desired location
 
-### Particle Systems
+# Particle Systems
 
 Right now, we have a capsule, but it looks pretty boring so we're going to add a [particle system](http://docs.unity3d.com/Manual/ParticleSystems.html) to make it more interesting.
 
