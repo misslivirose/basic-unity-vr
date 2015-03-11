@@ -14,6 +14,10 @@ Note that the following links were tested on earlier versions of Unity, so you m
 
 [Video walkthrough for installing Unity3D on Ubuntu](https://www.youtube.com/watch?v=mBEU41LY5FQ)
 
+Once you begin installing, you will be prompted to seelect the packages you want to include. Make sure that you include Unity 5 and the Standard Assets. The Web Player is nice to have, and the Example Project can show off more complex features for building games in Unity, but they aren't required.
+
+![unityinstall](/img/00_download.PNG)
+
 # Licensing Information
 When you install & run Unity for the first time, you'll be presented with a licensing screen with two options: activate Unity 5 Professional Edition or Personal Edition. Everything that we show you in this tutorial is done using Unity Personal Edition, which is really enough to get you started in the beginning.
 
@@ -23,4 +27,4 @@ When you install & run Unity for the first time, you'll be presented with a lice
 
 # Sign In
 
-Once you've activated Unity, you'll be prompted to sign in with your Unity account. If you haven't already created an account, you'll have the ability to create one within the application. 
+Once you've activated Unity, you'll be prompted to sign in with your Unity account. If you haven't already created an account, you'll have the ability to create one within the application.
