@@ -120,7 +120,7 @@ You can change the various properties of your light(s) in the inspector. Adjusti
 
 With Unity 5, the scene comes with a skybox by default, but you can change this depending on how you want your environment to feel. To change the skybox:
 
-1. Import your desired skybox from the Asset Store
+1. Import your desired skybox from the Asset Stores
 
 2. Select your FirstPersonCharacter controller and click "Add Component"
 

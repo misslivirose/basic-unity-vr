@@ -1,7 +1,7 @@
 Now that we've got a nice environment set up, it's time to add a few components that make our game more enjoyable. We're going to include a basic GUI control so that you can see your time throughout the maze, a gameplay mechanism for winning, and a few other components to make the experience more challenging.
 
 # Adding a GUI
-The first thing that we're going to do is include a basic user interface that displays on our screen.
+The first thing that we're going to do is include a basic user interface that displays on our screen. Once you start adding in UI elements, it's often easier to switch over to a 2D view of the screen, which you can do by clicking the "2D" above the scene window.
 
 {x: create_gui}
 Create the container for a timer
@@ -17,6 +17,8 @@ Create the container for a timer
 5. If needed, zoom out to see the full UI display. Adjust the positioning of your Panel to your desired location - in our example, we're putting this in the top right corner.
 
 6. Making sure that the Panel is selected in the scene Hierarchy, right click one more time and create a UI -> Text item in the Panel
+
+![UIpicture](/img/14_uipanelview.PNG)
 
 If you run your game now, you should see your panel floating in your camera view screen. We'll create a script to show and hide this later, but for now, let's finish up with the timer. We'll want to adjust our text block first so it's visible when we add in the timing component.
 
