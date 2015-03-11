@@ -18,7 +18,8 @@ Create the foundation for your maze by creating a series of plane objects
 
 
 We'll start by going to GameObject -> 3D Object -> Plane
-<!-- TODO: Image showing File menu for Plane object -->
+
+![plane](/img/03_plane.PNG)
 
 
 When you generate a plane GameObject, you should see a shape appear in the center of your view field. This will be the starting point for our maze, but right now, it's just a square.
@@ -33,6 +34,9 @@ Running the game now results in a static image where we can see the plane we've 
 
 * To manually drag objects around on the grid, change the view mode to (!!arrow) keys. This can be helpful when placing objects in the general area you want them before using the coordinate system to polish up their exact location. You can specify which axis to move the object on by clicking the object and dragging along the arrow on the axis you want to change.
 
+Important note: Do NOT make changes while you are in Game mode as they will not persist when you stop running your maze. It is strongly recommended that you change the color of your "In Game" UI by going to Edit -> Preferences -> Colors and changing the Playmode tint to something noticeably recognizable.
+
+![playmodetint](/img/04_playmodetint.PNG)
 
 {x: gameobject-component relationship}
 [Understand the relationship between GameObjects and Components](http://docs.unity3d.com/Manual/TheGameObject-ComponentRelationship.html)
@@ -40,9 +44,7 @@ Running the game now results in a static image where we can see the plane we've 
 Generally speaking, the relationship between a GameObject and a Component is fairly straightforward: a **GameObject** is the object's representation in the world and it's "physical" aspects, such as location and size, and it contains a set of **components** that define its characteristics and behaviors, such as it's motion controls or how it lights the area around it.
 
 
-#x Creating a first person control
-
-<!-- TODO: Add image here -->
+# Creating a first person control
 
 {x: create character}
 Create your first character controller using the built-in Unity FPS character component
@@ -53,6 +55,8 @@ We won't get very far with playing our game without a controller, so let's pause
 
 Because we created our project without any assets, the first thing that we'll want to do is import the standard Character Controller asset package.
 
+![importchar](/img/05_importchar.PNG)
+
 1. Go to Assets -> Import Package -> Characters to import the character package into your project. You can uncheck the Third Person Prefab to save space, but it's not strictly necessary, especially if you feel like playing around with the various character controllers.
 
 2. In the Asset directory at the bottom of the screen, expand the Standard Assets folder, choose the Characters folder, open the First Person Character directory, and double-click 'Prefabs'. You should see two prefabricated controllers, an FPSController and a RigidBodyFPSController
@@ -60,6 +64,8 @@ Because we created our project without any assets, the first thing that we'll wa
 3. Grab the FPSController and drag it into your scene over your plane. Make sure that the character is fully above the plane, or the collider won't take and the character will fall through the floor.
 
 4. Delete the Main Camera. The FPSController comes with a camera component, so we no longer need the one that Unity created by default.
+
+![fpscontroller](/img/06_fpscontroller.PNG)
 
 When you run the game now, you will have a first person view of the plane we've created. Notice that many of the typical controls for a first-person controller have been added for us automatically. You can move with the arrow or WASD keys, jump with the space bar, and the view adjusts automatically for us when we move around the plane.
 
@@ -87,8 +93,7 @@ Build a single pathway for the maze
 
 We'll pause here to introduce a new GameObject to the maze we're building by adding in walls. You can layout the entire maze floor first if you'd like, but we recommend building the floor and walls in sections to make it easier to layout the objects as you go.
 
-
-<!-- TODO: Include pictures for scaling / pictures -->
+![startoffloor](/img/07_layfloor.PNG)
 
 {x: build walls}
 Build walls around your existing paths
@@ -124,7 +129,7 @@ We made a cube with a default of 1 unit<sup>3</sup> - the scaling here is 1:1 wi
 
 For our wall, we have a scale of x:50 (since the base is 5*10 units), y:4 (you can choose the height here of your walls to vary the effect) and z:0.5 since there isn't a need for wall thickness to increase and keeping it small allows more flexibility with building paths.  
 
-<!-- TODO: screencast where we show copying and pasting the walls for the basis of the maze -->
+![showwalls](/img/08_withwalls.PNG)
 
 Now that you know the basics about building the skeleton for your maze, you can finish building your own maze design or copy the one that we've provided in the source code.
 
