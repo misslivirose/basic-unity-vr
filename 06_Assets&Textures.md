@@ -6,15 +6,15 @@ Right now, we have the bare basics of our maze and a general first person contro
 {x: visit store}
 [Explore the Unity Asset Store](https://www.assetstore.unity3d.com/en/)
 
-You can access the Unity Asset store online and through the program with the shortcut CMD/CTRL + 9. The Asset store requires Unity 3.3 or later, so if you're using an older version or running Unity in Wine on Linux, you won't be able to access the store directly.
+You can access the Unity Asset store online and through the app itself with the shortcut CMD/CTRL + 9. The Asset store requires Unity 3.3 or later, so if you're using an older version or running Unity in Wine on Linux, you won't be able to access the store directly.
 
 [Workaround for accessing the Asset Store on Linux](http://wiki.unity3d.com/index.php/Running_Unity_on_Linux_through_Wine#Unity_Asset_store_does_not_work_.28Has_a_workaround.29)
 
 The Unity Asset store is a centralized location to find resources for building games and environments, and allows content creators to purchase assets, ranging from full scenes to character sprites and ground textures, so that you don't have to make everything yourself.
 
-<!-- TODO: photo of asset store -->
+![unityassetstore](/img/10_assetstore.PNG)
 
-Want to skip the asset store for the terrain? Unity has a few built-in textures in the Terrain Asset package that can be included in your project by going to Assets -> Import Package -> Environment.
+Want to skip the asset store for textures? Unity has a few built-in textures in the Terrain Asset package that can be included in your project by going to Assets -> Import Package -> Environment.
 
 # Finding and applying textures
 Right now, we have a completed maze that is just about impossible to navigate due to all of the monotone colors, so we're going to make the environment more welcoming with textures. This will also add an element of realism based on the textures you choose.s
@@ -29,9 +29,7 @@ We're going to be downloading a texture pack from the Unity Asset store and impo
 # Modifying the floor texture
 
 {x: choose_floor_texture}
-Download and import a texture package from the Unity Asset store to apply to the ground of the maze.
-
-<!-- TODO: Include screencast video / screenshots -->
+Download and import a texture package from the Unity Asset store to apply to the ground of the maze.  
 
 1. From the asset store home page, select "Textures & Materials".
 
@@ -45,19 +43,21 @@ Download and import a texture package from the Unity Asset store to apply to the
 
 Once the import completes, you should see a new folder in the Asset window in Unity for the new texture pack. If you used the Ground Textures Pack, the folder name will just be the name of the imported package. Expand the folder to show the different textures.
 
-<!-- TODO: Screencast / image -->
+![groundtexture](/img/11_groundtexture.PNG)
 
-There are a few different ways that you can add textures to the various flooring components, depending on your personal preference, but the easiest way is to just grab the texture from the asset folder and drag it onto the map where you want to set the texture. In this case, we're using the 'Grass & Moss' texture.
+There are a few different ways that you can add textures to the various flooring components, depending on your personal preference, but the easiest way is to just grab the material (sphere) from the asset folder and drag it onto the map where you want to set the texture. In this case, we're using the 'Dry Ground' texture.
 
 1. Expand the asset folder that you want to use and find the folder for your chosen texture.
 
 2. Expand the texture folder for your chosen texture.
 
-3. Drag the texture - in this case, the file named 'diffuse' - onto your map where you want to change the ground visuals. A green circle with a plus sign will appear when you can drop the texture on your GameObjects.
+3. Drag the material - in this case, the file named 'Dry ground' - onto your map where you want to change the ground visuals. A green circle with a plus sign will appear when you can drop the texture on your GameObjects.
 
 4. Repeat this for any components you want to give textures to.
 
 Once you've added your desired textures to the ground of your maze, try running the game again - you'll notice that it's much easier to distinguish the pathways from the sky with the contrast from the new textured ground. We want to do the same thing with our walls to polish off the maze foundation.
+
+![groundimg](/img/12_ground.PNG)
 
 # Modifying the wall texture
 
@@ -74,6 +74,8 @@ Download, import, and apply a texture package from the Unity Asset store to appl
 
 When you run your game now, you'll see that the walls and ground now have the new look applied to them. Depending on the scale of your maze, you may need to adjust the tiling of the texture.
 
+![wallimg](/img/13_wall.PNG)
+
 For more information about textures in Unity, we recommend checking out the following resources:
 
 <!-- TODO: lots of links about background information on textures and other ways to assign textures to components. -->
@@ -86,10 +88,11 @@ For more information about textures in Unity, we recommend checking out the foll
 
 [Beginner Texture Tutorial](http://unity3d.com/learn/tutorials/modules/beginner/graphics/textures)
 
-
 # Normal Maps and Tiling
 
 You may need to manually add in normal maps to your textures in order for them to get the 3D feel to them in your environment. Normal maps are specific to materials and serve as a layer that specifies how lighting renders on your object to give the appearance of shadows and depth. To specify normal maps, you will need to change the type of your texture from "Diffuse" to one that supports an additional normal map. Then, follow the steps above for adding textures to include a normal mapping image to your material.
+
+Additionally, depending on how much you scaled the walls and floor in your maze earlier, you may notice distortion in your materials. You can edit a texture by double clicking on the material and changing the tiling, but be aware that any changes you make to a material will apply to all of the GameObjects that use the material. To work around this, copy and paste the material with a different name (as an example, Ground5x5 and Ground5x10) and use the different sizes to match with the size of the walls.
 
 # (Optional) Lighting and shadows
 
