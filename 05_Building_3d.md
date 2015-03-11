@@ -143,3 +143,5 @@ Generally speaking, if you are planning on building a more complex environment a
 [Building a more complex environment with the Terrain Editor](http://docs.unity3d.com/Manual/script-Terrain.html)
 
 Next up, we'll explore the Asset Store and apply textures to our maze.
+
+![mazenotexture](img/09_completednotexture.PNG)
